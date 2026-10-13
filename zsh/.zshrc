@@ -81,6 +81,17 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 # Force zsh-autocomplete to show the menu list without asking
 zstyle ':completion:*' list-prompt ''
 
+# Znap + zsh-autocomplete: must load before Oh My Zsh runs compinit
+# Download Znap, if it's not there yet.
+[[ -r ~/znap/znap/znap.zsh ]] ||
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/znap/znap
+source ~/znap/znap/znap.zsh  # Start Znap
+
+# Pull and load zsh-autocomplete
+znap clone marlonrichert/zsh-autocomplete
+znap source marlonrichert/zsh-autocomplete
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -144,17 +155,6 @@ export PATH=$PATH:$HOME/.maestro/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Znap
-# Download Znap, if it's not there yet.
-[[ -r ~/znap/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/znap/znap
-source ~/znap/znap/znap.zsh  # Start Znap
-
-# Pull and load zsh-autocomplete
-znap clone marlonrichert/zsh-autocomplete
-znap source marlonrichert/zsh-autocomplete
 
 export GRADLE_OPTS="-Xmx4g -XX:+UseG1GC -XX:MaxMetaspaceSize=512m"
 export GRADLE_USER_HOME=/Volumes/ExtNVMe/gradle-cache
