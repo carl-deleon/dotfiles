@@ -1,0 +1,4 @@
+# Copy to ~/.zshrc.local and fill in. This file is NOT tracked in git.
+export PUBLISH_TOKEN=
+export GITLAB_TOKEN=
+export GITLAB_URL=https://gitlab2.mynt.xyz
