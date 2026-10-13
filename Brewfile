@@ -46,7 +46,7 @@ cask "font-meslo-lg-nerd-font"
 # GPU-based terminal emulator
 cask "kitty"
 
-unless ENV["WORK_MAC"]
+unless ENV["HOMEBREW_WORK_MAC"]
     # HTTP(S) debugging proxy, analyzer, and client
     cask "http-toolkit"
     # Terminal emulator as alternative to Apple's Terminal app

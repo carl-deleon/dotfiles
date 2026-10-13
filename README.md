@@ -24,3 +24,13 @@ Refresh the Brewfile after installing or removing packages:
 ```sh
 brew bundle dump --file=~/dotfiles/Brewfile --force
 ```
+
+## Work Mac (no admin rights)
+
+Entries inside the `unless ENV["HOMEBREW_WORK_MAC"]` block in the `Brewfile` are skipped with:
+
+```sh
+HOMEBREW_WORK_MAC=1 ~/dotfiles/install.sh
+```
+
+The variable must start with `HOMEBREW_`: Homebrew strips all other environment variables before reading the Brewfile.
