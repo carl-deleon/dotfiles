@@ -6,8 +6,6 @@ brew "apktool"
 brew "bash"
 # GNU binary tools for native development
 brew "binutils"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
@@ -38,44 +36,51 @@ brew "pipenv"
 brew "repo"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Display and control your Android device
-brew "scrcpy"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# Fast CLI tool to detect dead/unused code in Android projects (Kotlin & Java)
-brew "kevindoremy/tap/searchdeadcode", trusted: true
-# Enable Windows-like alt-tab
-cask "alt-tab"
-# Voice and text chat software
-cask "discord"
-# Utility that prevents the system from going to sleep
-cask "domzilla-caffeine"
-# Web browser
-cask "firefox"
+
 cask "font-jetbrains-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
-# Web browser
-cask "google-chrome@beta"
-# HTTP(S) debugging proxy, analyzer, and client
-cask "http-toolkit"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
-# Menu bar manager
-cask "jordanbaird-ice"
 # GPU-based terminal emulator
 cask "kitty"
-# Customise mouse behavior
-cask "linearmouse"
-# Open-source cross-platform alternative to AirDrop
-cask "localsend"
-# Replacement for Docker Desktop
-cask "orbstack"
-# Messaging app with a focus on speed and security
-cask "telegram"
-# Multimedia player
-cask "vlc"
+
+unless ENV["WORK_MAC"]
+    # HTTP(S) debugging proxy, analyzer, and client
+    cask "http-toolkit"
+    # Terminal emulator as alternative to Apple's Terminal app
+    cask "iterm2"
+    # Menu bar manager
+    cask "jordanbaird-ice"
+    # Pack, ship and run any application as a lightweight container
+    brew "docker"
+    # Display and control your Android device
+    brew "scrcpy"
+    # Fast CLI tool to detect dead/unused code in Android projects (Kotlin & Java)
+    brew "kevindoremy/tap/searchdeadcode", trusted: true
+    # Enable Windows-like alt-tab
+    cask "alt-tab"
+    # Voice and text chat software
+    cask "discord"
+    # Utility that prevents the system from going to sleep
+    cask "domzilla-caffeine"
+    # Web browser
+    cask "firefox"
+    # Web browser
+    cask "google-chrome@beta"    
+    # Customise mouse behavior
+    cask "linearmouse"
+    # Open-source cross-platform alternative to AirDrop
+    cask "localsend"
+    # Replacement for Docker Desktop
+    cask "orbstack"
+    # Messaging app with a focus on speed and security
+    cask "telegram"
+    # Multimedia player
+    cask "vlc"
+end
+
 npm "@anthropic-ai/claude-code"
 npm "@semantic-release/commit-analyzer"
 npm "@semantic-release/exec"
