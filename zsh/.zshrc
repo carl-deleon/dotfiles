@@ -121,7 +121,7 @@ export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 export PATH="$JAVA_HOME/bin:$PATH"
 
 export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-alias ls='eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions'
+(( $+commands[eza] )) && alias ls='eza --color=always --long --no-filesize --icons=always --no-time --no-user --no-permissions'
 
 # history setup
 HISTFILE=$HOME/.zhistory
@@ -136,7 +136,6 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-alias cd="z"
 
 export PATH=$PATH:$HOME/.maestro/bin
 
@@ -167,7 +166,10 @@ alias openas="nohup /Applications/Android\ Studio.app/Contents/MacOS/studio &>/d
 
 export PATH="/usr/local/bin:$PATH"
 
-eval "$(zoxide init zsh)"
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+fi
 export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 
 # bun completions
